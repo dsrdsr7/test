@@ -21,14 +21,7 @@ const config = {
 const sql = require('mssql');
 
 const config = {
-    user: "dsrdsr7",
-    password: "NAMS9kUgcwgQS@S",
-    server: "nure-mykolchuk.database.windows.net",
-    database: "Internet_cloth_shop",
-    options: {
-        encrypt: true,
-        trustServerCertificate: false
-    },
+    connectionString: process.env.SQL_CONNECTION_STRING
 };
 
 /*app.get("/", function(request, response){
@@ -46,7 +39,8 @@ app.get("/", function(request, response){
     pool.connect().then(() => {
         const request = new sql.Request(pool);
         request.query("SELECT * FROM MyTable").then((result) => {
-            response.send(result);
+            response.setHeader('Content-Type', 'application/json');
+            response.send(JSON.stringify(result));
             pool.close();
         }).catch((err) => {
             console.error(err);
