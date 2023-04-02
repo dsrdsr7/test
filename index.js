@@ -35,13 +35,13 @@ const config = {
         response.send(`<img src="${url}" />`); // передача ссылки в тег img
     });
 });*/
-app.get("/", function(request, response){
+app.get("/", function(req, res){
     const pool = new sql.ConnectionPool(config);
     pool.connect().then(() => {
         const request = new sql.Request(pool);
         request.query("SELECT * FROM MyTable").then((result) => {
-            response.setHeader('Content-Type', 'application/json');
-            response.send(JSON.stringify(result));
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify(result));
             pool.close();
         }).catch((err) => {
             console.error(err);
