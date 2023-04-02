@@ -36,9 +36,7 @@ const config = {
     });
 });*/
 app.get("/", function(request, response){
-
-    response.send("Hello, World!");
-    /*const pool = new sql.ConnectionPool(config);
+    const pool = new sql.ConnectionPool(config);
     pool.connect().then(() => {
         const request = new sql.Request(pool);
         request.query("SELECT * FROM MyTable").then((result) => {
@@ -51,7 +49,7 @@ app.get("/", function(request, response){
         });
     }).catch((err) => {
         console.error(err);
-    });*/
+    });
 });
 
 app.listen(port, () => {
