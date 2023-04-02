@@ -1,6 +1,7 @@
 
 const express = require("express");
 const app = express();
+const port = process.env.PORT || 3000;
 /*const { Storage } = require('@google-cloud/storage');
 const storage = new Storage({
     projectId: 'dogwood-garden-382315',
@@ -51,7 +52,9 @@ app.get("/", function(request, response){
     });
 });
 
-app.listen(3000);
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+});
 
 
 
