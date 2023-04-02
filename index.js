@@ -22,7 +22,14 @@ const config = {
 const sql = require('mssql');
 
 const config = {
-    connectionString: process.env.SQL_CONNECTION_STRING
+    user: "dsrdsr7",
+    password: "NAMS9kUgcwgQS@S",
+    server: "nure-mykolchuk.database.windows.net",
+    database: "Internet_cloth_shop",
+    options: {
+        encrypt: true,
+        trustServerCertificate: false
+    },
 };
 
 /*app.get("/", function(request, response){
